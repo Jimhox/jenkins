@@ -14,8 +14,4 @@ services:
 
      volumes:
 
-      - type: bind
-
-        source: 'pwd' 
-
-        target: /var/jenkins_home
+      - "./:/var/jenkins_home" 
