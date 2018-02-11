@@ -7,4 +7,6 @@ provider "aws" {
 
 module "create_infra" {
   source = "../../modules/module"
+  vpc_cidr_block = "172.16.0.0/16"
+  subnet_cidr_block =  "172.16.10.0/24"
 }
