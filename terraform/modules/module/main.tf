@@ -1,5 +1,5 @@
 resource "aws_vpc" "my_vpc" {
-  cidr_block = "172.16.0.0/16"
+  cidr_block = "${var.vpc_cidr_block}"
   tags {
     Name = "tf-example"
   }
@@ -11,7 +11,7 @@ resource "aws_vpc" "my_vpc" {
 
 resource "aws_subnet" "my_subnet" {
   vpc_id = "${aws_vpc.my_vpc.id}"
-  cidr_block = "172.16.10.0/24"
+  cidr_block = "${var.subnet_cidr_block}"
   availability_zone = "us-east-1a"
   tags {
     Name = "tf-example"
@@ -23,8 +23,8 @@ resource "aws_subnet" "my_subnet" {
 }
 
 resource "aws_instance" "example" {
-  ami  = "ami-97785bed"
-  instance_type = "t2.micro"
+  ami  = "${var.ami}"
+  instance_type = "${var.instance_type}"
   subnet_id = "${aws_subnet.my_subnet.id}"
   vpc_security_group_ids = ["${aws_default_security_group.instance.id}"]
  #vpc_security_group_ids = ["${aws_security_group.instance.id}"] 

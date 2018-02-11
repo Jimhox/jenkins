@@ -1,1 +1,1 @@
-server_port = 22
+region = "us-east-1"
