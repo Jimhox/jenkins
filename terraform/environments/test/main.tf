@@ -3,9 +3,10 @@ provider "aws" {
   access_key = "${var.aws_access_key}"
   secret_key = "${var.aws_secret_key}"
 }
+
 terraform {
   backend "s3" {
-    bucket = "terraform-jami"
+    bucket = "jami-terraform"
     key    = "terraform.tfstate"
     region = "us-east-1"
   }
