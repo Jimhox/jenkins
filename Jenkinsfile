@@ -21,7 +21,7 @@ node {
    }
    if (result != "nodiff"){
 	stage('Email'){
-      mail (to: 'jami.malikzade@gmail.com',
+      mail (to: 'kgraham@luxoft.com',
       subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) ",
       body: "Difference is ${result}."); 
 	}
