@@ -1,7 +1,7 @@
 node {
    def result    
    stage('Checkout') {
-		git 'https://github.com/Jimhox/jenkins.git'
+		git 'https://github.com/skekpro/jenkins.git'
    }
    stage('Init'){
     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'awscredentials']]) {
